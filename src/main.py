@@ -8,9 +8,7 @@ from routers import get_apps_router
 
 def get_application() -> FastAPI:
     application = FastAPI(
-        title=settings.PROJECT_NAME,
-        debug=settings.DEBUG,
-        version=settings.VERSION
+        title=settings.PROJECT_NAME, debug=settings.DEBUG, version=settings.VERSION
     )
     application.include_router(get_apps_router())
 
@@ -25,7 +23,6 @@ def get_application() -> FastAPI:
 
 
 app = get_application()
-
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", reload=True)
